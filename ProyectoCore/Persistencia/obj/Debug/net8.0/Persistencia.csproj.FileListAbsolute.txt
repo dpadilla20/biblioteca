@@ -1,0 +1,17 @@
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Persistencia.deps.json
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Persistencia.runtimeconfig.json
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Persistencia.dll
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Persistencia.pdb
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Dominio.dll
+C:\Sites\NET\ProyectoCore\Persistencia\bin\Debug\net8.0\Dominio.pdb
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.csproj.AssemblyReference.cache
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.AssemblyInfoInputs.cache
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.AssemblyInfo.cs
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.csproj.CoreCompileInputs.cache
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persiste.7F7D6998.Up2Date
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.dll
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\refint\Persistencia.dll
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.pdb
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\Persistencia.genruntimeconfig.cache
+C:\Sites\NET\ProyectoCore\Persistencia\obj\Debug\net8.0\ref\Persistencia.dll
