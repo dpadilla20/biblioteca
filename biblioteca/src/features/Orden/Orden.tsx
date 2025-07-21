@@ -5,13 +5,15 @@ import { OrdenDetailItems } from './components/OrdenDetailItems'
 import { createOrder } from './services/orderService'
 import { useOrderStore } from './store/useOrderStore'
 import { useOrderDetailsStore } from './store/userOrderDetailsStore'
-import { OrdenPayment } from './components/OrdenPayment'
-import { usePaymentsStore } from './store/usePaymentStore'
+import { useNavigate } from 'react-router-dom'
+import { useOrdenIdStore } from '../../stores/useOrdenIdStore'
 
 export const Orden = () => {
+  const navigate = useNavigate()
+
   const { order, resetAll } = useOrderStore()
+  const { setOrdenId } = useOrdenIdStore()
   const { orderDetails, clearOrderDetails } = useOrderDetailsStore()
-  const { payments, clearPayments } = usePaymentsStore()
 
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
@@ -39,20 +41,20 @@ export const Orden = () => {
         cantidad: parseInt(d.cantidad),
         precioUnitario: parseFloat(d.precioUnitario),
       })),
-      PagoLista: payments.map((p) => ({
-        monto: parseFloat(p.monto),
-        metodoPago: p.metodoPago,
-        estado: p.estado,
-        referenciaPago: p.referenciaPago,
-      })),
     }
 
     try {
       const data = await createOrder(payload)
-      setMessage(`¡Pedido creado correctamente! ID: ${data.id}`)
+      setOrdenId(data.id)
+
+      setMessage(
+        `¡Se registro la orden con! ID: ${data.id} seras redirigido en unos segundos a la sección de pagos.`
+      )
       resetAll()
       clearOrderDetails()
-      clearPayments()
+      setTimeout(() => {
+        navigate('/pagos') // sin enviar el ID por URL
+      }, 2500)
     } catch (err) {
       setError(`Error: ${err.message}`)
     } finally {
@@ -73,7 +75,6 @@ export const Orden = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <OrdenDetail />
           <OrdenDetailItems />
-          <OrdenPayment />
           <div className="flex justify-center">
             <button
               type="submit"

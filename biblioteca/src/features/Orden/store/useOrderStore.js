@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export const useOrderStore = create((set) => ({
+export const useOrderStore = create((set) => ({  
   order: {
     userId: '',
     total: '',
@@ -9,11 +9,9 @@ export const useOrderStore = create((set) => ({
     sedeId: '',
     sedeNombre: '',
   },
-  orderDetails: [],
-  payments: [],
+  orderDetails: [],  
   setOrder: (newOrder) => set({ order: newOrder }),
-  setOrderDetails: (newDetails) => set({ orderDetails: newDetails }),
-  setPayments: (newPayments) => set({ payments: newPayments }),
+  setOrderDetails: (newDetails) => set({ orderDetails: newDetails }),  
   updateField: (name, value) =>
     set((state) => ({
       order: { ...state.order, [name]: value },
@@ -34,7 +32,6 @@ export const useOrderStore = create((set) => ({
         sedeId: '',
         sedeNombre: '',
       },
-      orderDetails: [],
-      payments: [],
+      orderDetails: [],      
     }),
 }))

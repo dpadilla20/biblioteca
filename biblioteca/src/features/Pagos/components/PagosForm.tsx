@@ -1,7 +1,32 @@
-import { usePaymentsStore } from '../store/usePaymentStore'
+import { useState } from 'react'
+import { usePagoStore } from '../stores/usePagoStore'
+import { createPagos } from '../services/pagosService'
+import { useOrdenIdStore } from '../../../stores/useOrdenIdStore'
 
-export const OrdenPayment = () => {
-  const { payments, setPayments } = usePaymentsStore()
+export const PagosForm = () => {
+  const { payments, setPayments, clearPayments } = usePagoStore()
+  const { ordenId } = useOrdenIdStore()
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    setMessage('')
+    setError('')
+    setIsLoading(true)
+
+    try {
+      const data = await createPagos({ pagoLista: payments })
+      setMessage(`¡El pago se ha realizado correctamente!`)
+      clearPayments()
+    } catch (err) {
+      setError(`Error: ${err.message}`)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const handlePaymentChange = (index, e) => {
     const { name, value } = e.target
@@ -10,25 +35,29 @@ export const OrdenPayment = () => {
     setPayments(newPayments)
   }
 
-  const addPayment = () => {
-    setPayments([
-      ...payments,
-      { monto: '', metodoPago: 'Yape', estado: 'PENDIENTE', referenciaPago: '' },
-    ])
-  }
-
   const removePayment = (index) => {
     const newPayments = payments.filter((_, i) => i !== index)
     setPayments(newPayments)
   }
+
+  const addPayment = () => {
+    setPayments([
+      ...payments,
+      { monto: '', metodoPago: 'Yape', estado: 'PENDIENTE', referenciaPago: '', ordenId },
+    ])
+  }
+
+  if (payments.length === 0)
+    <p className="text-gray-500 italic">No hay pagos en la orden. Agrega uno.</p>
+
   return (
     <>
-      {/* Payment Details Section */}
-      <div className="border border-purple-200 rounded-lg p-4">
-        <h2 className="text-xl font-semibold text-purple-700 mb-4">Detalles de Pago</h2>
-        {payments.length === 0 && (
-          <p className="text-gray-500 italic">No hay pagos en la orden. Agrega uno.</p>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {message && (
+          <div className="bg-green-100 text-green-700 px-4 py-3 rounded mb-4">{message}</div>
         )}
+        {error && <div className="bg-red-100 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
+
         {payments.map((payment, index) => (
           <div
             key={index}
@@ -113,7 +142,7 @@ export const OrdenPayment = () => {
                   onClick={() => removePayment(index)}
                   className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200"
                 >
-                  Remove Payment
+                  Eliminar
                 </button>
               )}
             </div>
@@ -126,7 +155,16 @@ export const OrdenPayment = () => {
         >
           Agregar Pago
         </button>
-      </div>
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Registrando...' : 'Registrar Pago'}
+          </button>
+        </div>
+      </form>
     </>
   )
 }
