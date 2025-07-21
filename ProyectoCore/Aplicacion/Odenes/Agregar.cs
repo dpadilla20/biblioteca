@@ -22,7 +22,6 @@ namespace Aplicacion.Ordenes
         public int? SedeId { get; set; }
         public string SedeNombre { get; set; }
         public ICollection<OrdenDetalleOutputDto> Detalles { get; set; } = new List<OrdenDetalleOutputDto>();
-        public ICollection<PagoOutputDto> Pagos { get; set; } = new List<PagoOutputDto>();
     }
 
     public class OrdenDetalleOutputDto
@@ -36,17 +35,6 @@ namespace Aplicacion.Ordenes
         public decimal PrecioUnitario { get; set; }
         public decimal Subtotal { get; set; } // Incluimos el subtotal calculado
     }
-
-    public class PagoOutputDto
-    {
-        public int Id { get; set; }
-        public decimal Monto { get; set; }
-        public string MetodoPago { get; set; } = null!;
-        public string Estado { get; set; } = null!;
-        public string? ReferenciaPago { get; set; }
-        public DateTime FechaPago { get; set; }
-    }
-
 
     public class Agregar
     {
@@ -66,18 +54,15 @@ namespace Aplicacion.Ordenes
             public string TipoEntrega { get; set; } = null!;
 
             [StringLength(500, ErrorMessage = "Las observaciones no pueden exceder 500 caracteres.")]
-            public string? Observaciones { get; set; }
+            public string Observaciones { get; set; }
 
             public int? SedeId { get; set; }
 
             [StringLength(100, ErrorMessage = "El nombre de la sede no puede exceder 100 caracteres.")]
-            public string? SedeNombre { get; set; }
+            public string SedeNombre { get; set; }
 
             [Required(ErrorMessage = "La orden debe tener al menos un detalle de producto.")]
             public List<OrdenDetalleDto> OrdenDetalleLista { get; set; } = new List<OrdenDetalleDto>();
-
-            [Required(ErrorMessage = "La orden debe tener al menos un pago.")]
-            public List<PagoDto> PagoLista { get; set; } = new List<PagoDto>();
         }
 
         public class OrdenDetalleDto
@@ -90,10 +75,10 @@ namespace Aplicacion.Ordenes
             public string ProductoNombre { get; set; } = null!;
 
             [StringLength(50)]
-            public string? TipoProducto { get; set; }
+            public string TipoProducto { get; set; }
 
             [StringLength(20)]
-            public string? Formato { get; set; }
+            public string Formato { get; set; }
 
             [Required(ErrorMessage = "La cantidad es obligatoria.")]
             [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser al menos 1.")]
@@ -104,28 +89,8 @@ namespace Aplicacion.Ordenes
             public decimal PrecioUnitario { get; set; }
         }
 
-        public class PagoDto
-        {
-            [Required(ErrorMessage = "El monto del pago es obligatorio.")]
-            [Range(0.01, double.MaxValue, ErrorMessage = "El monto del pago debe ser un valor positivo.")]
-            public decimal Monto { get; set; }
-
-            [Required(ErrorMessage = "El método de pago es obligatorio.")]
-            [StringLength(50)]
-            public string MetodoPago { get; set; } = null!;
-
-            [Required(ErrorMessage = "El estado del pago es obligatorio.")]
-            [StringLength(50)]
-            [RegularExpression("^(PENDIENTE|CONFIRMADO|RECHAZADO)$", ErrorMessage = "El estado de pago debe ser 'PENDIENTE', 'CONFIRMADO' o 'RECHAZADO'.")]
-            public string Estado { get; set; } = null!;
-
-            [StringLength(100)]
-            public string? ReferenciaPago { get; set; }
-        }
-
-
         // 2. Manejador del comando
-        public class Manejador : IRequestHandler<Ejecuta, OrdenDto> // *** CAMBIO CLAVE: Ahora retorna OrdenDto ***
+        public class Manejador : IRequestHandler<Ejecuta, OrdenDto>
         {
             private readonly OrdenContext _context;
 
@@ -144,10 +109,7 @@ namespace Aplicacion.Ordenes
                 {
                     throw new ValidationException("La orden debe contener al menos un detalle de producto.");
                 }
-                if (request.PagoLista == null || request.PagoLista.Count == 0)
-                {
-                    throw new ValidationException("La orden debe contener al menos un detalle de pago.");
-                }
+
 
                 var orden = new Orden
                 {
@@ -160,7 +122,6 @@ namespace Aplicacion.Ordenes
                     SedeId = request.SedeId,
                     SedeNombre = request.SedeNombre,
                     OrdenDetalleLista = new List<OrdenDetalle>(),
-                    PagoLista = new List<Pago>()
                 };
 
                 foreach (var detalleDto in request.OrdenDetalleLista)
@@ -173,20 +134,6 @@ namespace Aplicacion.Ordenes
                         Formato = detalleDto.Formato,
                         Cantidad = detalleDto.Cantidad,
                         PrecioUnitario = detalleDto.PrecioUnitario,
-                        Orden = orden
-                    });
-                }
-
-                // Añadir los pagos
-                foreach (var pagoDto in request.PagoLista)
-                {
-                    orden.PagoLista.Add(new Pago
-                    {
-                        Monto = pagoDto.Monto,
-                        MetodoPago = pagoDto.MetodoPago,
-                        Estado = pagoDto.Estado,
-                        ReferenciaPago = pagoDto.ReferenciaPago,
-                        FechaPago = DateTime.Now,
                         Orden = orden
                     });
                 }
@@ -218,15 +165,7 @@ namespace Aplicacion.Ordenes
                             PrecioUnitario = od.PrecioUnitario,
                             Subtotal = od.Subtotal
                         }).ToList(),
-                        Pagos = orden.PagoLista.Select(p => new PagoOutputDto
-                        {
-                            Id = p.Id,
-                            Monto = p.Monto,
-                            MetodoPago = p.MetodoPago,
-                            Estado = p.Estado,
-                            ReferenciaPago = p.ReferenciaPago,
-                            FechaPago = p.FechaPago
-                        }).ToList()
+
                     };
                 }
 

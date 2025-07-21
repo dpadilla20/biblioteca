@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\WebApi\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj": {
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj",
+        "projectUniqueName": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj",
         "projectName": "Aplicacion",
-        "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj",
+        "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\obj\\",
+        "outputPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,11 +26,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj"
+              "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj"
               },
-              "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj": {
-                "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj"
+              "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj": {
+                "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\obj\\",
+        "outputPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -147,14 +147,14 @@
         }
       }
     },
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj": {
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj",
+        "projectUniqueName": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj",
+        "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\Persistencia.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Persistencia\\obj\\",
+        "outputPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Persistencia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -169,8 +169,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj"
+              "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj"
               }
             }
           }
@@ -230,14 +230,14 @@
         }
       }
     },
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\WebAPI\\WebAPI.csproj": {
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\WebApi\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\WebApi\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\WebApi\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\WebAPI\\obj\\",
+        "outputPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -252,8 +252,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj": {
-                "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj"
+              "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj": {
+                "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Aplicacion\\Aplicacion.csproj"
               }
             }
           }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {}
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
+    "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Sites\\NET\\test\\biblioteca\\ProyectoCore\\Dominio\\obj\\",
+        "outputPath": "C:\\Sites\\NET\\biblioteca\\ProyectoCore\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
